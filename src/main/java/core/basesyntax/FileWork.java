@@ -1,19 +1,17 @@
 package core.basesyntax;
 
-import java.io.BufferedWriter;
+import java.io.*;
 
 public class FileWork {
     public String[] readFromFile(String fileName) {
 
-        String[] splitedFile = fileName.split(" ");
-        String[] filterWords = new String[]{};
-
-        for (String word : splitedFile) {
-            String firstLetter = word.substring(0,1);
-            if (firstLetter.equals("w") || firstLetter.equals("W")) {
-
-            }
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException("Can't read from file", e);
         }
+
+
 
         return null;
     }
